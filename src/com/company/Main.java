@@ -27,14 +27,14 @@ public class Main {
             String templates = Files.readString(Path.of(scannerTemplateFile));
             System.out.println("--------------------------------------");
             System.out.println("Результат работы программы записан в файл result");
-            String[] newTemplates = templates.split("\n");
+            String[] splitTemplates = templates.split("\n");
 
-            for (String newTemplate : newTemplates) {
+            for (String splitTemplate : splitTemplates) {
                 int count = 0;
-                int resultFilter = filterWordsInText.filterContainsLetterAndNumber(text, newTemplate, count);
+                int resultFilter = filterWordsInText.filterContainsLetterAndNumber(text, splitTemplate, count);
 
                 String stringCount = Integer.toString(resultFilter);
-                resultList.add(newTemplate);
+                resultList.add(splitTemplate);
                 resultList.add(stringCount);
                 Files.write(result, resultList);
             }
